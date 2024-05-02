@@ -1,0 +1,19 @@
+{
+    "Error":[
+        {
+            "title":[
+                "width: 100%;",
+                "background-color: crimson;",
+                "padding: 2vmin;",
+                "color: white;"
+            ],
+            "body":[
+                "width: 100%;",
+                "background-color: white;",
+                "padding: 2vmin;",
+                "border-bottom: 1px solid rgb(37, 37, 37);",
+                "text-align: justify;"
+            ]
+        }
+    ]
+}

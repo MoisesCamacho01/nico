@@ -1,0 +1,129 @@
+/* Animación con keyframe llamada "latidos" */
+@keyframes latidos {
+    from { transform: none; }
+    50% { transform: scale(1.4); }
+    to { transform: none; }
+}
+/* En la clase corazon vamos a llamar latidos en la animación  */
+.notificaciones{
+    display: none;
+    position: fixed;
+    width: 10vh;
+    height: 10vh;
+    top: 1vh;
+    right: 1vh;
+    transition: all 0.5s ease-in-out;
+}
+.notificaciones .msm_title{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notificaciones .msm_title .msm_alert {
+    width: 6vh;
+    height: 6vh;
+	display: flex;
+    font-size: 6vmin;
+	text-shadow: 0 0 10px #222,1px 1px  0 #450505;
+	color: rgba(255, 0, 0, 0.808);
+	animation: latidos .8s infinite;
+    transform-origin: center;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.notificaciones .msm_title .msm_alert:hover {
+    color: rgb(255, 166, 0);
+}
+
+.notificaciones .msm_contenido{
+    width: 100%;
+    height: 80vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: none;
+}
+.notificaciones .msm_footer{
+    width: 100%;
+    height: 10vh;
+    display: none;
+}
+.notificaciones .msm_footer .btn-mensaje{
+    width: 100%;
+    height: 100%;
+    font-size: 4vmin;
+    transition: all 0.5s ease-in-out;
+}
+.notificaciones .msm_footer .btn-mensaje:hover{
+    background: rgba(248,80,50,1);
+}
+
+.notificaciones .msm_contenido .msm{
+    width: 100%;
+    margin-bottom: 2vmin;
+}
+
+
+.notificaciones .msm_contenido::-webkit-scrollbar{
+    width: 4px;     /* Tamaño del scroll en vertical */
+    height: 4px;    /* Tamaño del scroll en horizontal */
+}
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+.notificaciones .msm_contenido::-webkit-scrollbar-thumb {
+    background: deepskyblue;
+    border-radius: 8px;
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del track */
+.notificaciones .msm_contenido::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 8px;
+}
+
+/* Cambiamos el fondo cuando esté en active o hover */
+.notificaciones .msm_contenido::-webkit-scrollbar-track:hover,
+.notificaciones .msm_contenido::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
+}
+
+/* MENSAJES TOAST */
+.notification_tast{
+    background-color: #fff;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    display: flex;
+    position: fixed;
+    right: -400px;
+    transition: all 0.8s ease-in-out;
+    cursor: pointer;
+    z-index: 100;
+}
+.contendido_toast{
+    width: 100%;
+    display: flex;
+}
+.contendido_toast .img_toast{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+}
+.contendido_toast .toast_body{
+    width: 279px;
+}
+.contendido_toast .toast_body .title_toast{
+    width: 100%;
+    font-weight: bold;
+    padding: 5px;
+    text-align: left;
+}
+.contendido_toast .toast_body .msm_toast{
+    width: 100%;
+    padding: 5px;
+    font-size: 0.95rem;
+}

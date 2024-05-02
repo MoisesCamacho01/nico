@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <script>
+        // $(document).ready(function () {
+        //     $(".parrafo").click(function (e) { 
+                
+        //         let dato = $("#parrafo").text()
+        //         ob = new Objeto1(dato)
+        //         alert(ob.body())
+        //     });
+        //     class Objeto1{
+        //         constructor(name){
+        //             this.name = name
+        //         }
+        //         body() {
+        //             return this.name;
+        //         }
+        //     }
+        // });
+    </script>
+    <button class="parrafo">PARRAFO 1</button>
+    <p id="parrafo">Hola</p>
+    <button>PARRAFO 2</button>
+    <script>
+        // controlador
+            $(".parrafo").click(function (e) { 
+                
+                let dato = $("#parrafo").text()
+                ob = new Objeto1(dato)
+                alert(ob.body())
+            });
+
+        // MODELO
+            class Objeto1{
+                constructor(name){
+                    this.name = name
+                }
+                body() {
+                    function mayuculas(dato) {
+                        return dato.toUpperCase();
+                    }
+                    return mayuculas(this.name);
+                }
+            }
+            class Objeto2{
+                constructor(name){
+                    this.name = name
+                }
+                body() {
+                    return "objeto 2";
+                }
+            }
+    </script>
+</body>
+</html>
