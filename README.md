@@ -1,2 +1,0 @@
-# nico
-Nico Framework php
