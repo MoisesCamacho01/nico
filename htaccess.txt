@@ -1,0 +1,86 @@
+#========================================================
+#ACCESO DENEGADO
+#=========================================================
+
+    Options All -Indexes
+    
+
+#========================================================
+#ERRORES DE SERVIDOR
+#=========================================================
+    
+    ErrorDocument 403 /libro/errors/redireccionar.php
+    ErrorDocument 404 /libro/errors/redireccionar.php
+    #ErrorDocument 500 /libro/errors/redireccionar.php
+
+#========================================================
+#URL AMIGABLES
+#=========================================================
+
+    #Options +FollowSymLinks
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^([-a-zA-Z0-9/]+)$ index.php?views=$1
+
+
+#========================================================
+#ARCHIVOS BLOQUEADOS
+#=========================================================
+
+    RewriteCond %{REQUEST_URI} ^.*/config.*$
+    RewriteRule .*$ http://localhost/libro/404
+
+    RewriteCond %{REQUEST_URI} ^.*/errors.*$
+    RewriteRule .*$ http://localhost/libro/404
+    
+    RewriteCond %{REQUEST_URI} ^.*/export.*$
+    RewriteRule .*$ http://localhost/libro/404
+
+    RewriteCond %{REQUEST_URI} ^.*/license.*$
+    RewriteRule .*$ http://localhost/libro/404
+
+    #RewriteCond %{REQUEST_URI} ^.*/resources.*$
+    #RewriteRule .*$ http://localhost/libro/404
+
+    #RewriteCond %{REQUEST_URI} ^.*/routes.*$
+    #RewriteRule .*$ http://localhost/libro/404
+
+#========================================================
+#BLOQUEAR CONTROLLADORES
+#=========================================================
+
+    RewriteCond %{REQUEST_URI} ^.*/controllers/view-controllers.php.*$
+    RewriteRule .*$ http://localhost/libro/404
+
+#========================================================
+#BLOQUEAR MODELOS
+#=========================================================
+
+    RewriteCond %{REQUEST_URI} ^.*/model.*$
+    RewriteRule .*$ http://localhost/libro/404
+
+#========================================================
+#BLOQUEAR ERRORES
+#=========================================================
+    
+    RewriteCond %{REQUEST_URI} ^.*/errors/403.php.*$
+    RewriteRule .*$ http://localhost/libro/403
+
+    RewriteCond %{REQUEST_URI} ^.*/errors/404.php.*$
+    RewriteRule .*$ http://localhost/libro/404
+
+#========================================================
+#BLOQUEAR ARCHIVOS 
+#=========================================================
+
+    <FilesMatch "\.(htaccess|htpasswd|ini|phps|log|bak|txt)$">
+        Require all denied
+    </FilesMatch>
+    
+#========================================================
+#ARCHIVOS BLOQUEADOS(API)
+#=========================================================
+
+    RewriteCond %{REQUEST_URI} ^.*/Api/.*$
+    RewriteRule .*$ http://localhost/libro/404
