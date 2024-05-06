@@ -1,6 +1,9 @@
 <?php
-    require_once('./autoload.php');
+use core\Nico;
 
-    echo $_GET['view'];
+require_once('./autoload.php');
+
+$App = new Nico();
+$App->app();
 
 exit;
